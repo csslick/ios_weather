@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>iOS Weather App</title>
+	<style>
+		*{
+			margin: 0; padding: 0;
+			box-sizing: border-box;
+		}
+		#page{
+			width: 100%;
+			height: 100vh;
+			background: #ccc;
+			background: url(images/bg.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+		}
+		header{
+			height: 100%;
+			height: 7.8vh;
+			background: rgba(16,9,100,0.3);
+			color: #fff;
+			border-bottom: 1px solid rgba(255,255,255,.3);
+		}
+		header h2{
+			text-align: center;
+			line-height: 7.8vh;
+		}
+		section > #info > li{
+			height: 9.3vh;
+			border-top: 1px solid rgba(0,0,0,.3);
+		}
+		section > #info{
+			position: absolute;
+			left: 0; bottom: 0;
+			width: 100%;
+			font-size: 20pt;
+			color: #fff;
+		}
+		.day{
+			width: 50%;
+			height: 9.3vh;
+/*			background: #ccc;*/
+			float: left;
+			padding: 0 15px;
+			line-height: 9.3vh;
+		}
+		.weather_icon, .min_temp, .max_temp{
+			width: 16.66%;
+			height: 9.3vh;
+/*			background: #ddd;*/
+			float: left;
+			padding: 0 15px;
+			line-height: 9.3vh;
+			background: rgba(255,255,255,0.3);
+		}
+		.weather_icon > img{
+			display: block;
+			margin-top: 10px;
+			border: 1px solid;
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- 360x640 -->
+	<div id="page">
+		<header>
+			<h2>Seoul Korea</h2>
+		</header>
+		<section>
+			<!-- grid 185|60|60|60, height 9.3vh -->
+			<ul id="info">
+				<li>
+					<div class="day">text 185</div>
+					<div class="weather_icon">
+						<img src="images/icon_cloud.png" alt="icon" width="100%">
+					</div>
+					<div class="min_temp">15&deg;</div>
+					<div class="max_temp">22&deg;</div>
+				</li>
+				<li>
+					<div class="day">text 185</div>
+					<div class="weather_icon">
+						<img src="images/icon_sun.png" alt="icon" width="100%">
+					</div>
+					<div class="min_temp">15&deg;</div>
+					<div class="max_temp">22&deg;</div>
+				</li>
+				<li>9.3vh</li>
+				<li>9.3vh</li>
+				<li>9.3vh</li>
+				<li>9.3vh</li>
+			</ul>
+		</section>
+	</div><!-- end page -->
+</body>
+</html>
