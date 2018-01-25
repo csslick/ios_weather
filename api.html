@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQUery AJAX JSONP Request</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<a href="https://api.darksky.net/forecast/ce0b572bee660ab58fa8396665d3d088/37,126">weather</a>
+	<p id="info"></p>
+
+<script>
+	$(function(){
+		var $info = $('#info');
+		var url = "https://api.darksky.net/forecast/ce0b572bee660ab58fa8396665d3d088/37,126";
+		var weather = {
+			position: '',
+			current_temp: 0,
+			apparent_temp: 0
+		};
+
+		$.ajax({ 
+			url: url, 
+			dataType: 'jsonp', 
+			success: function(data){
+				var position = data.timezone;
+				var current_temp = (data.currently.temperature-32) / 1.8;
+				var apparent_temp = (data.currently.apparentTemperature - 32) / 1.8;
+				console.log(data);
+				$info.html(position + '<br>' + current_temp + '<br>' + apparent_temp);
+				// $info.html(JSON.stringify(data));
+				
+			},
+			error: function(err){
+				console.log("서버접속에러", err);
+			}
+		}); 
+	
+
+	});
+	//  https://api.darksky.net/forecast/ce0b572bee660ab58fa8396665d3d088/${lat},${lng}
+
+	// (화씨온도 - 32) ÷ 1.8 = 섭씨온도
+	/*
+	var currentTemp = (body.currently.temperature - 32) / 1.8;
+	var apparentTemp = (body.currently.apparentTemperature - 32) / 1.8;
+	callback(null, {
+		currentTemp: currentTemp,
+		apparentTemp: apparentTemp
+	*/
+
+
+</script>
+</body>
+</html>
